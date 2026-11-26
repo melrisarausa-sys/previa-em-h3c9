@@ -139,6 +139,19 @@ details[open] summary::after{content:"−"}
 details p{padding-bottom:22px;color:var(--mute)}
 .final{text-align:center;background:radial-gradient(60% 90% at 50% 100%,rgba(194,177,93,.2),transparent 70%)}
 .final p{margin:14px auto 24px}
+.form{display:grid;gap:8px;max-width:680px;margin:0 auto;padding:24px 18px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:18px}
+.form label{margin-top:10px;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--g1)}
+.form label:first-child{margin-top:0}
+.form input,.form select,.form textarea{width:100%;min-width:0;min-height:52px;padding:12px 16px;font:400 1rem/1.5 Montserrat,system-ui,sans-serif;color:var(--ink);background-color:#050401;border:1px solid var(--line);border-radius:10px}
+.form textarea{min-height:112px;resize:vertical}
+.form ::placeholder{color:#8d8776;font-size:.88rem}
+.form :is(input,select,textarea):focus{outline:2px solid var(--g1);outline-offset:1px;border-color:transparent}
+.form select{-webkit-appearance:none;appearance:none;padding-right:44px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9' fill='none' stroke='%23c2b15d' stroke-width='1.8'%3E%3Cpath d='M1 1.500l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:14px;cursor:pointer}
+.form option{background:#12100b}
+.form .btn{width:100%;margin-top:18px;border-radius:999px;font-family:Montserrat,system-ui,sans-serif;line-height:1.4;cursor:pointer}
+.final .aviso{max-width:52ch;margin:14px auto 0;text-align:center;font-size:.76rem;line-height:1.6;color:var(--mute)}
+@media(min-width:900px){.form{padding:36px 40px}}
+.zap.no-form{pointer-events:none}.zap.no-form .zap-foto{pointer-events:auto}.zap.no-form .balao{visibility:hidden}
 footer{border-top:1px solid var(--line);padding:44px 0 28px;text-align:center}
 footer .logo{width:150px;margin:0 auto 26px}
 .contatos{display:flex;justify-content:center;margin-bottom:30px}.contatos a{display:flex;flex-direction:column;align-items:center;gap:6px;padding-inline:14px;white-space:nowrap;text-decoration:none;font-size:.9rem;line-height:1.5}.contatos a+a{border-left:1px solid var(--line)}.contatos a:hover{color:var(--g2)}.contatos span{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}.legal{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:22px;font-size:.76rem;color:var(--mute)}.legal span{display:inline-block}
@@ -253,10 +266,17 @@ section{padding:64px 0}.head{margin-bottom:36px}.duo.duo{gap:64px}.faq .head{tex
 <details class="reveal"><summary>Os veículos são novos ou&nbsp;usados?</summary><p>Os dois. A EM Utilitários vende vans e ônibus novos e usados, de todas as&nbsp;marcas.</p></details><details class="reveal"><summary>Existe veículo a pronta&nbsp;entrega?</summary><p>Há unidades anunciadas a pronta entrega. Como o estoque muda, confirme a disponibilidade pelo&nbsp;WhatsApp.</p></details><details class="reveal"><summary>Vocês entregam em outras&nbsp;cidades?</summary><p>Sim. O atendimento e a entrega alcançam todo o Brasil. Prazo e condições são combinados em cada&nbsp;negociação.</p></details><details class="reveal"><summary>Como funciona o&nbsp;financiamento?</summary><p>A proposta passa por análise de crédito. Entrada, prazo e taxas variam conforme o veículo e o perfil de quem&nbsp;compra.</p></details><details class="reveal"><summary>Vocês têm versões&nbsp;especiais?</summary><p>Há opções executivas, escolares, motorhome e escritório móvel. Conte o seu projeto para saber o que é&nbsp;possível.</p></details><details class="reveal"><summary>Como peço um&nbsp;orçamento?</summary><p>Envie pelo WhatsApp o tipo de uso, a quantidade de lugares e a cidade. Assim a resposta já chega mais&nbsp;precisa.</p></details>
 </div></section>
 
-<section class="final"><div class="wrap">
+<section class="final" id="contato"><div class="wrap">
 <p class="eyebrow">Próximo&nbsp;passo</p><h2>Diga quantos lugares você&nbsp;precisa</h2>
-<p class="lead">Envie o tipo de uso e a sua cidade. A conversa já começa com as opções que fazem sentido para&nbsp;você.</p>
-<a class="btn" href="https://wa.me/5554991632829?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento.%5CnTipo%20de%20uso%3A%5CnQuantidade%20de%20lugares%3A%5CnCidade%3A" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
+<p class="lead">Preencha os campos e conte o tipo de uso, a quantidade de lugares e a sua&nbsp;cidade.</p>
+<form class="form" id="formulario" action="https://wa.me/5554991632829" target="_blank">
+<label for="f-nome">Nome completo</label><input id="f-nome" name="nome" type="text" autocomplete="name" required>
+<label for="f-fone">Telefone / WhatsApp</label><input id="f-fone" name="telefone" type="tel" autocomplete="tel" required>
+<label for="f-assunto">Assunto</label><select id="f-assunto" name="assunto"><option>Orçamento de van</option><option>Orçamento de ônibus</option><option>Financiamento</option><option>Consórcio</option><option>Refinanciamento</option><option>Motorhome ou escritório móvel</option><option>Outro assunto</option></select>
+<label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" rows="4" placeholder="Ex.: van de 20 lugares para transporte escolar"></textarea>
+<button type="submit" class="btn">Enviar pelo WhatsApp</button>
+<p class="aviso">Ao continuar, abrimos uma conversa no WhatsApp. Sua mensagem só é enviada quando você tocar em enviar por&nbsp;lá.</p>
+</form>
 </div></section>
 </main>
 <footer id="rodape"><div class="wrap">
@@ -273,6 +293,13 @@ document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));
 const zap=document.querySelector('.zap');
 zap.querySelector('.fecha').addEventListener('click',()=>zap.classList.add('sem-balao'));
 new IntersectionObserver(([e])=>zap.classList.toggle('off',e.isIntersecting)).observe(document.getElementById('rodape'));
+const form=document.getElementById('formulario');
+new IntersectionObserver(([e])=>zap.classList.toggle('no-form',e.isIntersecting)).observe(form);
+form.addEventListener('submit',e=>{e.preventDefault();
+const v=n=>form.elements[n].value.trim();
+const linhas=['Olá, Elis! Vi o site e quero atendimento.','Nome: '+v('nome'),'Telefone/WhatsApp: '+v('telefone'),'Assunto: '+v('assunto')];
+if(v('mensagem'))linhas.push('Mensagem: '+v('mensagem'));
+window.open(form.action+'?text='+encodeURIComponent(linhas.join('\n')),'_blank','noopener')});
 const pulso=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('parado',!e.isIntersecting)));
 document.querySelectorAll('.btn,.trilho,.num,.fila,.mural').forEach(b=>pulso.observe(b));
 const grade=document.querySelector('.usos'),luz=grade.querySelector('.luz'),traco=luz.querySelector('path');
