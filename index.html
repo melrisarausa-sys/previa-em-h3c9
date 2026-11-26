@@ -142,8 +142,21 @@ details p{padding-bottom:22px;color:var(--mute)}
 footer{border-top:1px solid var(--line);padding:44px 0 28px;text-align:center}
 footer .logo{width:150px;margin:0 auto 26px}
 .contatos{display:flex;justify-content:center;margin-bottom:30px}.contatos a{display:flex;flex-direction:column;align-items:center;gap:6px;padding-inline:14px;white-space:nowrap;text-decoration:none;font-size:.9rem;line-height:1.5}.contatos a+a{border-left:1px solid var(--line)}.contatos a:hover{color:var(--g2)}.contatos span{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--g1)}.legal{display:grid;gap:6px;border-top:1px solid var(--line);padding-top:22px;font-size:.76rem;color:var(--mute)}.legal span{display:inline-block}
-.zap{position:fixed;right:16px;bottom:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:opacity .25s,visibility .25s}
-.zap svg{width:30px;height:30px;fill:#fff}
+.zap{position:fixed;right:14px;bottom:14px;z-index:30;display:flex;align-items:center;gap:11px;transition:opacity .25s,visibility .25s}
+.zap-foto{position:relative;flex:none;width:60px;height:60px;border-radius:50%;background:#25d366;padding:3px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.zap-foto img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.zap-foto i{position:absolute;right:-3px;bottom:-3px;display:grid;place-items:center;width:24px;height:24px;border:2px solid #000;border-radius:50%;background:#25d366}
+.zap-foto svg{width:14px;height:14px;fill:#fff}
+.balao{position:relative;background:#fbf8ee;color:#15130b;border:1px solid var(--g1);border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.45);animation:surgir .5s 1.5s ease-out both}
+.balao::after{content:"";position:absolute;right:-6px;top:50%;width:10px;height:10px;margin-top:-5px;background:#fbf8ee;border-top:1px solid var(--g1);border-right:1px solid var(--g1);transform:rotate(45deg)}
+.balao a{display:flex;flex-direction:column;padding:9px 30px 9px 13px;white-space:nowrap;text-decoration:none;line-height:1.4}
+.balao b{font-weight:600;font-size:.78rem}
+.balao span{font-weight:400;font-size:.76rem}
+.balao small{margin-top:2px;font-weight:600;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#756418}
+.fecha{position:absolute;right:2px;top:2px;width:26px;height:26px;border:0;background:none;color:#6d6750;font:400 1.05rem/1 Montserrat,sans-serif;cursor:pointer}
+.sem-balao .balao{display:none}
+@media(max-width:420px){.zap-foto{width:56px;height:56px}.zap{gap:10px;right:12px;bottom:12px}.balao a{padding:7px 27px 7px 11px}.balao b{font-size:.72rem}.balao span{font-size:.7rem}.balao small{font-size:.53rem}}
+@keyframes surgir{from{opacity:0;transform:translateX(12px) scale(.92)}to{opacity:1;transform:none}}
 .zap.off{opacity:0;visibility:hidden}
 .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
 .js .reveal.in{opacity:1;transform:none}
@@ -164,12 +177,12 @@ section{padding:64px 0}.head{margin-bottom:36px}.duo.duo{gap:64px}.faq .head{tex
 @media(min-width:1000px){nav{display:flex}}
 .btn{animation:pulsar 2s ease-in-out infinite}
 .btn:hover,.btn:focus-visible{animation-play-state:paused}
-.zap{animation:pulsar-zap 2s ease-in-out infinite}
+.zap-foto{animation:pulsar-zap 2s ease-in-out infinite}
 .parado,.parado .corre,.parado .desliza,.parado blockquote{animation-play-state:paused!important}
 @keyframes pulsar{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(235,231,130,.7)}45%{transform:scale(1.04)}75%{box-shadow:0 0 0 12px rgba(235,231,130,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(235,231,130,0)}}
 @keyframes pulsar-zap{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,.7)}45%{transform:scale(1.08)}75%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 @media(min-width:900px){.trilho{animation-duration:75s}.faixa li{font-size:1.2rem;padding-block:24px}.faixa li::after{margin-inline:34px}}
-@media(prefers-reduced-motion:reduce){.btn,.zap,.trilho,.num,.corre,.desliza,blockquote{animation:none!important}.desliza{width:auto;justify-content:center}.desliza ul{flex-wrap:wrap;justify-content:center;gap:18px 0;width:100%;padding-inline:20px}.desliza ul.copia,.desliza li[aria-hidden]{display:none}.desliza li{margin-right:0;margin-inline:9px;max-width:calc(100vw - 40px)}.mural{-webkit-mask-image:none;mask-image:none}.corre{width:auto}.corre ul{flex:1;flex-wrap:wrap;gap:10px 0}.corre ul.copia,.itens li[aria-hidden]{display:none}.fila{-webkit-mask-image:none;mask-image:none}.luz,.ponto{display:none}.trilho{width:auto}.trilho ul{flex:1;flex-wrap:wrap;justify-content:center}.faixa ul.copia,.faixa li[aria-hidden]{display:none}html{scroll-behavior:auto}*{transition:none!important}.js .reveal{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.btn,.zap-foto,.balao,.trilho,.num,.corre,.desliza,blockquote{animation:none!important}.desliza{width:auto;justify-content:center}.desliza ul{flex-wrap:wrap;justify-content:center;gap:18px 0;width:100%;padding-inline:20px}.desliza ul.copia,.desliza li[aria-hidden]{display:none}.desliza li{margin-right:0;margin-inline:9px;max-width:calc(100vw - 40px)}.mural{-webkit-mask-image:none;mask-image:none}.corre{width:auto}.corre ul{flex:1;flex-wrap:wrap;gap:10px 0}.corre ul.copia,.itens li[aria-hidden]{display:none}.fila{-webkit-mask-image:none;mask-image:none}.luz,.ponto{display:none}.trilho{width:auto}.trilho ul{flex:1;flex-wrap:wrap;justify-content:center}.faixa ul.copia,.faixa li[aria-hidden]{display:none}html{scroll-behavior:auto}*{transition:none!important}.js .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -252,12 +265,13 @@ section{padding:64px 0}.head{margin-bottom:36px}.duo.duo{gap:64px}.faq .head{tex
 <div class="legal"><p><span>© 2026 EM Utilitários.</span> <span>Todos os direitos&nbsp;reservados.</span></p>
 <p>Criado por <a href="https://www.instagram.com/melri_siragusa/" target="_blank" rel="noopener">Melri Siragusa&nbsp;Designer</a></p></div>
 </div></footer>
-<a class="zap" href="https://wa.me/5554991632829?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20EM%20Utilit%C3%A1rios%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.7A13 13 0 1 0 16 3Zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4A10.600 10.600 0 1 1 16 26.600Zm5.8-7.9c-.3-.2-1.900-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.200-.4.2-.7.1c-.3-.2-1.300-.5-2.500-1.600-.9-.8-1.600-1.900-1.800-2.200s0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.5l-1-2.400c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.100 1-1.100 2.600 1.100 3 1.300 3.200c.2.2 2.200 3.400 5.4 4.7.8.3 1.300.5 1.800.7.8.2 1.400.2 2 .1.6-.1 1.900-.8 2.100-1.500s.3-1.400.2-1.500c-.1-.2-.3-.2-.6-.4Z"/></svg></a>
+<div class="zap"><div class="balao"><a href="https://wa.me/5554991632829?text=Ol%C3%A1%2C%20Elis%21%20Vi%20o%20site%20e%20quero%20conversar%20sobre%20um%20ve%C3%ADculo." target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><b>Oi, tudo bem?</b><span>Fale com a Elis Mateus</span><small>Consultora de vendas</small></a><button type="button" class="fecha" aria-label="Fechar mensagem">×</button></div><a class="zap-foto" href="https://wa.me/5554991632829?text=Ol%C3%A1%2C%20Elis%21%20Vi%20o%20site%20e%20quero%20conversar%20sobre%20um%20ve%C3%ADculo." target="_blank" rel="noopener" aria-label="Falar com a consultora Elis Mateus no WhatsApp"><img src="images/elis-rosto.webp" alt="" width="192" height="192"><i><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.7A13 13 0 1 0 16 3Zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4A10.600 10.600 0 1 1 16 26.600Zm5.8-7.9c-.3-.2-1.900-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.200-.4.2-.7.1c-.3-.2-1.300-.5-2.500-1.600-.9-.8-1.600-1.900-1.800-2.200s0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.5l-1-2.400c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1.100 1-1.100 2.600 1.100 3 1.300 3.200c.2.2 2.200 3.400 5.4 4.7.8.3 1.300.5 1.800.7.8.2 1.400.2 2 .1.6-.1 1.900-.8 2.100-1.500s.3-1.400.2-1.500c-.1-.2-.3-.2-.6-.4Z"/></svg></i></a></div>
 <script>
 document.documentElement.classList.add('js');
 const reveal=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');reveal.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));
 const zap=document.querySelector('.zap');
+zap.querySelector('.fecha').addEventListener('click',()=>zap.classList.add('sem-balao'));
 new IntersectionObserver(([e])=>zap.classList.toggle('off',e.isIntersecting)).observe(document.getElementById('rodape'));
 const pulso=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('parado',!e.isIntersecting)));
 document.querySelectorAll('.btn,.trilho,.num,.fila,.mural').forEach(b=>pulso.observe(b));
